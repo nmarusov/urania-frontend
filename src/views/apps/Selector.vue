@@ -32,7 +32,18 @@ export default class Selector extends Vue {
   public async onSectionChange() {
     switch (this.tab) {
       case 0:
-        this.$router.push("/apps/modeler")
+        this.$router.push("/apps/modeler").catch((err) => {
+          // Ignore the vuex err regarding  navigating to the page they are already on.
+          if (
+            err.name !== "NavigationDuplicated" &&
+            !err.message.includes(
+              "Avoided redundant navigation to current location"
+            )
+          ) {
+            // But print any other errors to the console
+            console.error(err)
+          }
+        })
         break
       case 1:
         this.$router.push("/apps/tasklist")

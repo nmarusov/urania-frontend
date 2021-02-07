@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY package*.json /app/
 
-RUN npm install && npm audit fix
+RUN yarn install
 
 COPY ./ /app/
 
@@ -13,7 +13,7 @@ ARG FRONTEND_ENV=production
 
 ENV VUE_APP_ENV=${FRONTEND_ENV}
 
-RUN npm run build
+RUN yarn build
 
 
 # Stage 1, based on Nginx, to have only the compiled app, ready for production with Nginx

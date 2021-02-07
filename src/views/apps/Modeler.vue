@@ -1,16 +1,33 @@
 <template>
-  <v-container fluid>
-    <v-row align="center" justify="center">
-      <v-col cols="12">
-        Modeler Application
-      </v-col>
-    </v-row>
-  </v-container>
+  <div id="modeler">
+    <BpmnModeler
+      ref="modeler"
+      v-model="modeler"
+      :diagramXML="propXmlData"
+      propertiesPanel
+    ></BpmnModeler>
+  </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator"
+import { BpmnModeler } from "@/lib/vue-bpmn-modeler"
 
-@Component
-export default class Modeler extends Vue {}
+import demo from "@/assets/demo.bpmn"
+import view from "@/assets/view.bpmn"
+
+@Component({ components: { BpmnModeler } })
+export default class Modeler extends Vue {
+  public propXmlData = demo
+  public viewData = view
+  public modeler = {
+    xmlData: "",
+    svgImage: "",
+  }
+}
 </script>
+
+<style lang="sass" scoped>
+#modeler
+  margin-bottom: 100%
+</style>

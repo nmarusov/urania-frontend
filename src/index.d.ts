@@ -1,9 +1,6 @@
-declare module "*.vue" {
-  import Vue from "vue"
-  export default Vue
+declare module "*.bpmn" {
+  let _: string
+  export default _
 }
 
-// declare module "bpmn-js" {
-//   import Modeler from "bpmn-js/lib/"
-//   export default
-// }
+declare module "vue-bpmn-modeler"

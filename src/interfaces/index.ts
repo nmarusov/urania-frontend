@@ -29,3 +29,8 @@ export interface ITasklistData {
 export interface IBpManagerData {
   data: string
 }
+
+export interface IModelerData {
+  xmlData: string
+  svgImage: string
+}

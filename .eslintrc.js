@@ -16,17 +16,16 @@ module.exports = {
   },
   plugins: ["prettier"],
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "@typescript-eslint/no-this-alias": "off",
+    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-unexpected-multiline": 0,
     semi: "off",
     "@typescript-eslint/semi": ["off"],
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      { argsIgnorePattern: "^_.*" },
-    ],
+    "@typescript-eslint/no-unused-vars": ["off", { argsIgnorePattern: "^_.*" }],
+    "@typescript-eslint/no-use-before-define": "off",
   },
   overrides: [
     {
