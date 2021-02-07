@@ -11,6 +11,7 @@
             <v-card-text>
               <v-form @keyup.enter="submit">
                 <v-text-field
+                  id="login"
                   @keyup.enter="submit"
                   v-model="login"
                   prepend-icon="mdi-account"
